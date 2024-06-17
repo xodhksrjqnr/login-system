@@ -5,7 +5,7 @@ import com.taewan.login_api_server.tool.convertor.DtoConvertor;
 import com.taewan.login_api_server.tool.convertor.EntityConvertor;
 import com.taewan.login_api_server.domain.user.dto.response.SearchOneResultDto;
 import com.taewan.login_api_server.domain.user.dto.response.SearchResultDto;
-import com.taewan.login_api_server.domain.user.dto.request.WithdrawInfoDto;
+import com.taewan.login_api_server.domain.user.dto.request.LeaveInfoDto;
 import com.taewan.login_api_server.domain.user.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void withdraw(WithdrawInfoDto dto) {
+    public void leave(LeaveInfoDto dto) {
         usersRepository.deleteByUserIdAndEmail(dto.getUserId(), dto.getEmail());
     }
 

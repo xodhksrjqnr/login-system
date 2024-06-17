@@ -2,7 +2,7 @@ package com.taewan.login_api_server.api;
 
 import com.taewan.login_api_server.domain.user.dto.request.JoinInfoDto;
 import com.taewan.login_api_server.domain.user.dto.response.SearchResultDto;
-import com.taewan.login_api_server.domain.user.dto.request.WithdrawInfoDto;
+import com.taewan.login_api_server.domain.user.dto.request.LeaveInfoDto;
 import com.taewan.login_api_server.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +31,8 @@ public class UserController {
         userService.join(dto);
     }
 
-    @PostMapping("/withdraw")
-    public void requestWithDraw(WithdrawInfoDto dto) {
-        userService.withdraw(dto);
+    @PostMapping("/leave")
+    public void requestWithDraw(LeaveInfoDto dto) {
+        userService.leave(dto);
     }
 }
