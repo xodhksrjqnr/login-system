@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 public class SearchOneResultDto extends FullInfoDto {
 
-    int id;
-    LocalDateTime createdAt;
+    private int id;
+    private LocalDateTime createdAt;
 
     public int getId() {
         return id;

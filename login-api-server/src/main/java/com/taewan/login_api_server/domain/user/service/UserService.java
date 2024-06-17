@@ -9,4 +9,6 @@ public interface UserService {
     void join(JoinInfoDto dto);
     void leave(LeaveInfoDto dto);
     SearchResultDto searchAll();
+    void login();
+    void logout();
 }

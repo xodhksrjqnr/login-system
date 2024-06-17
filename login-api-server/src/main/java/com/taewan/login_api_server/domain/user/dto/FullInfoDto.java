@@ -2,11 +2,11 @@ package com.taewan.login_api_server.domain.user.dto;
 
 abstract public class FullInfoDto {
 
-    String userId;
-    String password;
-    String name;
-    String phoneNumber;
-    String email;
+    private String userId;
+    private String password;
+    private String name;
+    private String phoneNumber;
+    private String email;
 
     public String getUserId() {
         return userId;
