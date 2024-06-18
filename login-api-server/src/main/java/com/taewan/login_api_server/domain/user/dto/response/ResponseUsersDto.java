@@ -2,17 +2,17 @@ package com.taewan.login_api_server.domain.user.dto.response;
 
 import java.util.List;
 
-public class SearchResultDto {
+public class ResponseUsersDto {
 
-    List<SearchOneResultDto> userList;
+    List<ResponseUserDto> userList;
     int size;
 
-    public SearchResultDto(List<SearchOneResultDto> dtos) {
+    public ResponseUsersDto(List<ResponseUserDto> dtos) {
         this.userList = dtos;
         this.size = userList.size();
     }
 
-    public List<SearchOneResultDto> getUserList() {
+    public List<ResponseUserDto> getUserList() {
         return userList;
     }
 

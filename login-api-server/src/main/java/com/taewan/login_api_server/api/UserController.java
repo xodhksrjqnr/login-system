@@ -1,7 +1,9 @@
 package com.taewan.login_api_server.api;
 
 import com.taewan.login_api_server.domain.user.dto.request.JoinInfoDto;
-import com.taewan.login_api_server.domain.user.dto.response.SearchResultDto;
+import com.taewan.login_api_server.domain.user.dto.request.RequestLoginDto;
+import com.taewan.login_api_server.domain.user.dto.response.ResponseLoginDto;
+import com.taewan.login_api_server.domain.user.dto.response.ResponseUsersDto;
 import com.taewan.login_api_server.domain.user.dto.request.LeaveInfoDto;
 import com.taewan.login_api_server.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -22,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping
-    public SearchResultDto requestSearchAll() {
+    public ResponseUsersDto requestSearchAll() {
         return userService.searchAll();
     }
 
@@ -34,5 +36,10 @@ public class UserController {
     @PostMapping("/leave")
     public void requestWithDraw(LeaveInfoDto dto) {
         userService.leave(dto);
+    }
+
+    @PostMapping("/login")
+    public ResponseLoginDto requestLogin(RequestLoginDto dto) {
+        return userService.login(dto);
     }
 }

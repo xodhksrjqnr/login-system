@@ -4,7 +4,7 @@ import com.taewan.login_api_server.domain.user.dto.FullInfoDto;
 
 import java.time.LocalDateTime;
 
-public class SearchOneResultDto extends FullInfoDto {
+public class ResponseUserDto extends FullInfoDto {
 
     private int id;
     private LocalDateTime createdAt;

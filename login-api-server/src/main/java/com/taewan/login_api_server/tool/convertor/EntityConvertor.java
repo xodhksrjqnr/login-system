@@ -1,12 +1,13 @@
 package com.taewan.login_api_server.tool.convertor;
 
 import com.taewan.login_api_server.domain.user.User;
-import com.taewan.login_api_server.domain.user.dto.response.SearchOneResultDto;
+import com.taewan.login_api_server.domain.user.dto.between.CertificationDto;
+import com.taewan.login_api_server.domain.user.dto.response.ResponseUserDto;
 
 public class EntityConvertor {
 
-    static public SearchOneResultDto toDto(User entity) {
-        SearchOneResultDto dto = new SearchOneResultDto();
+    static public ResponseUserDto toSearchOneResultDto(User entity) {
+        ResponseUserDto dto = new ResponseUserDto();
         dto.setId(entity.getId());
         dto.setUserId(entity.getUserId());
         dto.setName(entity.getName());
@@ -14,6 +15,13 @@ public class EntityConvertor {
         dto.setPhoneNumber(entity.getPhoneNumber());
         dto.setEmail(entity.getEmail());
         dto.setCreatedAt(entity.getCreatedAt());
+
+        return dto;
+    }
+
+    static public CertificationDto toCertificationDto(User entity) {
+        CertificationDto dto = new CertificationDto();
+        dto.setUserId(entity.getUserId());
 
         return dto;
     }

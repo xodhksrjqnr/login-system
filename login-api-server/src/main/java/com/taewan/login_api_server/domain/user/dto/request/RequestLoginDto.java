@@ -1,6 +1,6 @@
 package com.taewan.login_api_server.domain.user.dto.request;
 
-public class LoginInfoDto {
+public class RequestLoginDto {
 
     private String userId;
     private String password;
