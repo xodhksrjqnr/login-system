@@ -15,9 +15,10 @@ public class JwtProvider implements TokenProvider {
 
     private final Key key;
     private final long ExpirationMilliseconds = 3600000L;
+    private final String Secret = "thisissamplekey123456780";
 
     public JwtProvider() {
-        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode("tmp"));
+        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(Secret + Secret + Secret + Secret));
     }
 
     @Override
