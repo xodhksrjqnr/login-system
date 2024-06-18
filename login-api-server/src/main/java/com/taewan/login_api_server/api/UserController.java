@@ -7,10 +7,7 @@ import com.taewan.login_api_server.domain.user.dto.response.ResponseUsersDto;
 import com.taewan.login_api_server.domain.user.dto.request.LeaveInfoDto;
 import com.taewan.login_api_server.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -29,17 +26,17 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public void requestJoin(JoinInfoDto dto) {
+    public void requestJoin(@ModelAttribute JoinInfoDto dto) {
         userService.join(dto);
     }
 
     @PostMapping("/leave")
-    public void requestLeave(LeaveInfoDto dto) {
+    public void requestLeave(@ModelAttribute LeaveInfoDto dto) {
         userService.leave(dto);
     }
 
     @PostMapping("/login")
-    public ResponseLoginDto requestLogin(RequestLoginDto dto) {
+    public ResponseLoginDto requestLogin(@ModelAttribute RequestLoginDto dto) {
         return userService.login(dto);
     }
 }
