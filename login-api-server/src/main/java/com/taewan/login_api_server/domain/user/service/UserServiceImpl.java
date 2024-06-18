@@ -8,6 +8,7 @@ import com.taewan.login_api_server.domain.user.dto.response.ResponseLoginDto;
 import com.taewan.login_api_server.domain.user.dto.response.ResponseUserDto;
 import com.taewan.login_api_server.domain.user.dto.response.ResponseUsersDto;
 import com.taewan.login_api_server.domain.user.repository.UsersRepository;
+import com.taewan.login_api_server.etc.jwt.JwtProvider;
 import com.taewan.login_api_server.etc.jwt.TokenProvider;
 import com.taewan.login_api_server.tool.convertor.DtoConvertor;
 import com.taewan.login_api_server.tool.convertor.EntityConvertor;
@@ -27,9 +28,9 @@ public class UserServiceImpl implements UserService {
     private final TokenProvider tokenProvider;
 
     @Autowired
-    public UserServiceImpl(UsersRepository usersRepository, TokenProvider tokenProvider) {
+    public UserServiceImpl(UsersRepository usersRepository, JwtProvider jwtProvider) {
         this.usersRepository = usersRepository;
-        this.tokenProvider = tokenProvider;
+        this.tokenProvider = jwtProvider;
     }
 
     @Override
