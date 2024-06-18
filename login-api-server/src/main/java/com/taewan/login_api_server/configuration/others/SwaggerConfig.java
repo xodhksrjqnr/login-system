@@ -1,4 +1,4 @@
-package com.taewan.login_api_server.configuration;
+package com.taewan.login_api_server.configuration.others;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
