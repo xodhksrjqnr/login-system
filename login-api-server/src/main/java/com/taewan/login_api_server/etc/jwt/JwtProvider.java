@@ -14,15 +14,15 @@ import java.util.Date;
 public class JwtProvider implements TokenProvider {
 
     private final Key key;
+    private final long ExpirationMilliseconds = 3600000L;
 
     public JwtProvider() {
-        byte[] keyBytes = Decoders.BASE64.decode("tmp");
-        this.key = Keys.hmacShaKeyFor(keyBytes);
+        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode("tmp"));
     }
 
     @Override
     public String create(CertificationDto dto) {
-        Date expiration = new Date(new Date().getTime() + 3600 * 1000);
+        Date expiration = new Date(new Date().getTime() + ExpirationMilliseconds);
 
         return Jwts.builder()
                 .claim("userid", dto.getUserId())
@@ -32,7 +32,10 @@ public class JwtProvider implements TokenProvider {
     }
 
     @Override
-    public void validate(Object token) {
-
+    public void validate(String token) {
+        Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJwt(token);
     }
 }
