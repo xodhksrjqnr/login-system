@@ -37,6 +37,6 @@ public class JwtProvider implements TokenProvider {
         Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token);
+                .parseClaimsJws(token);
     }
 }
