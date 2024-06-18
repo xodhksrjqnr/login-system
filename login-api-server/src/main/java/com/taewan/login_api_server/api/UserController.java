@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping("/leave")
-    public void requestWithDraw(LeaveInfoDto dto) {
+    public void requestLeave(LeaveInfoDto dto) {
         userService.leave(dto);
     }
 
