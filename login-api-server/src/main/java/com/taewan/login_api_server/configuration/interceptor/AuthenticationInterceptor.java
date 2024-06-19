@@ -32,16 +32,4 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         );
         return true;
     }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-                    @Nullable ModelAndView modelAndView) throws Exception {
-        System.out.println("post");
-    }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
-                                @Nullable Exception ex) throws Exception {
-        System.out.println("completion");
-    }
 }
