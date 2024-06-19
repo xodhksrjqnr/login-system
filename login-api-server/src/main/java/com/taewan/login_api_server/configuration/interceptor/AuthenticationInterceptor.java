@@ -1,6 +1,6 @@
 package com.taewan.login_api_server.configuration.interceptor;
 
-import com.taewan.login_api_server.etc.jwt.TokenProvider;
+import com.taewan.login_api_server.provider.TokenProvider;
 import com.taewan.login_api_server.tool.checker.CookieChecker;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,6 +1,7 @@
-package com.taewan.login_api_server.etc.jwt;
+package com.taewan.login_api_server.provider.jwt;
 
 import com.taewan.login_api_server.domain.user.dto.between.CertificationDto;
+import com.taewan.login_api_server.provider.TokenProvider;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
