@@ -28,9 +28,9 @@ public class UserServiceImpl implements UserService {
     private final TokenProvider tokenProvider;
 
     @Autowired
-    public UserServiceImpl(UsersRepository usersRepository, JwtProvider jwtProvider) {
+    public UserServiceImpl(UsersRepository usersRepository, TokenProvider tokenProvider) {
         this.usersRepository = usersRepository;
-        this.tokenProvider = jwtProvider;
+        this.tokenProvider = tokenProvider;
     }
 
     @Override
