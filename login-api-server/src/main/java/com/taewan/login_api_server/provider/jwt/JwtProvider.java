@@ -28,6 +28,7 @@ public class JwtProvider implements TokenProvider {
 
         return Jwts.builder()
                 .claim("userid", dto.getUserId())
+                .claim("role", dto.getRole().name())
                 .signWith(key, SignatureAlgorithm.HS512)
                 .setExpiration(expiration)
                 .compact();
