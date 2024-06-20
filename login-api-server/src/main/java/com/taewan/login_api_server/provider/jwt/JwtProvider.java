@@ -8,6 +8,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
+import javax.management.relation.InvalidRoleValueException;
 import java.security.Key;
 import java.util.Date;
 
@@ -35,10 +36,24 @@ public class JwtProvider implements TokenProvider {
     }
 
     @Override
-    public void validate(String token) {
-        Jwts.parserBuilder()
+    public void validateAuthorityOfService(String token) {
+        validate(token, "user");
+    }
+
+    @Override
+    public void validateAuthorityOfAdmin(String token) {
+        validate(token, "admin");
+    }
+
+    private void validate(String token, String role) {
+        String roleInfo = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJws(token);
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role", String.class);
+
+        if (!roleInfo.equals(role))
+            throw new RuntimeException(new InvalidRoleValueException("관리자만 접근 가능합니다."));
     }
 }

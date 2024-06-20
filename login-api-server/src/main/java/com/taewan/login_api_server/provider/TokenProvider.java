@@ -5,5 +5,6 @@ import com.taewan.login_api_server.domain.user.dto.between.CertificationDto;
 public interface TokenProvider {
 
     String create(CertificationDto dto);
-    void validate(String token);
+    void validateAuthorityOfService(String token);
+    void validateAuthorityOfAdmin(String token);
 }

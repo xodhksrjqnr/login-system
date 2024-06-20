@@ -23,7 +23,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        tokenProvider.validate(
+        tokenProvider.validateAuthorityOfAdmin(
                 CookieChecker.getCookie(request.getCookies(), "AuthenticationToken")
                         .orElseThrow(BadRequestException::new)
                         .getValue()
