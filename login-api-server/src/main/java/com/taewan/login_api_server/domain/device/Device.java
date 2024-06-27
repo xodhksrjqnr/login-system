@@ -1,47 +1,31 @@
 package com.taewan.login_api_server.domain.device;
 
-import com.taewan.login_api_server.common.BaseTime2;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Devices")
-public class Device extends BaseTime2 {
+public class Device extends BaseDeviceEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    @Column(length = 100)
-    String deviceToken;
-    @Column(length = 20)
-    String userId;
+    protected Device() {}
 
-    public Device() {}
-
-    public Device(int id, String deviceToken, String userId, LocalDateTime lastLoggedInAt) {
+    protected Device(int id, String userId, String token, String type, String uuid, LocalDateTime lastLoggedInAt) {
         this.id = id;
-        this.deviceToken = deviceToken;
         this.userId = userId;
-        this.setLastLoggedInAt(lastLoggedInAt);
+        this.token = token;
+        this.type = type;
+        this.uuid = uuid;
+        this.lastLoggedInAt = lastLoggedInAt;
     }
 
-    static public Device create(String deviceToken, String userId) {
+    static public Device create(String userId, String token, String type, String uuid) {
         Device device = new Device();
-        device.deviceToken = deviceToken;
         device.userId = userId;
+        device.token = token;
+        device.type = type;
+        device.uuid = uuid;
 
         return device;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getDeviceToken() {
-        return deviceToken;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 }
