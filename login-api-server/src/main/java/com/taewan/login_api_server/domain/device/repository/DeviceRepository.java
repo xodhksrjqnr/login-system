@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface DeviceRepository extends JpaRepository<Device, Integer> {
 
     void deleteByUserIdAndUuid(String userId, String uuid);
+    List<Device> findAllByUserId(String userId);
 }

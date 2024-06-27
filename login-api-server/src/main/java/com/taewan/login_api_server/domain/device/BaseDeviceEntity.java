@@ -40,7 +40,7 @@ public abstract class BaseDeviceEntity {
         return type;
     }
 
-    public String getSerialNumber() {
+    public String getUuid() {
         return uuid;
     }
 
