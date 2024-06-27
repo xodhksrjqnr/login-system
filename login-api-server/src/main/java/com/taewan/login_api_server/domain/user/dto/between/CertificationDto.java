@@ -1,9 +1,8 @@
 package com.taewan.login_api_server.domain.user.dto.between;
 
-import com.taewan.login_api_server.common.AuthenticationDto;
 import com.taewan.login_api_server.domain.user.common.Role;
 
-public class CertificationDto implements AuthenticationDto {
+public class CertificationDto {
 
     private String userId;
     private Role role;
