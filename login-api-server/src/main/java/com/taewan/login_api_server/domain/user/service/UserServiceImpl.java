@@ -45,8 +45,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public ResponseUsersDto searchAll() {
-        List<ResponseUserDto> dtos = usersRepository
-                .findAll()
+        List<ResponseUserDto> dtos = usersRepository.findAll()
                 .stream()
                 .map(EntityConvertor::toSearchOneResultDto)
                 .collect(Collectors.toList());
@@ -57,8 +56,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseLoginDto login(RequestLoginDto dto) {
         CertificationDto user = EntityConvertor.toCertificationDto(
-                usersRepository
-                        .findByUserIdAndPassword(dto.getUserId(), dto.getPassword())
+                usersRepository.findByUserIdAndPassword(dto.getUserId(), dto.getPassword())
                         .orElseThrow(NoSuchElementException::new)
         );
 

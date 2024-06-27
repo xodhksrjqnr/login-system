@@ -1,6 +1,5 @@
 package com.taewan.login_api_server.domain.user;
 
-import com.taewan.login_api_server.common.BaseUserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 

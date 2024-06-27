@@ -1,4 +1,4 @@
-package com.taewan.login_api_server.common;
+package com.taewan.login_api_server.domain.user;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
