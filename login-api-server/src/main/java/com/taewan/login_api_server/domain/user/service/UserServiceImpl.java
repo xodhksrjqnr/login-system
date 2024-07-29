@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     public ResponseUsersDto searchAll() {
         List<ResponseUserDto> dtos = usersRepository.findAll()
                 .stream()
-                .map(EntityConvertor::toSearchOneResultDto)
+                .map(EntityConvertor::toResponseUserDto)
                 .collect(Collectors.toList());
 
         return new ResponseUsersDto(dtos);
